@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@300;400;600&display=swap");
+
+:root {
+  --blue: #54a8ff;
+  --ink: #050816;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--ink);
+  color: #edf6ff;
+  font-family: Manrope, sans-serif;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+#world {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.boot {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 70% 45%, rgba(20,93,168,.28), transparent 28%),
+    linear-gradient(145deg, #03050c 15%, #07101f);
+  transition: opacity 1s, visibility 1s;
+}
+
+.boot.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.boot-content {
+  width: min(780px, 86vw);
+}
+
+.eyebrow {
+  color: #8292a9;
+  font: 11px "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+.eyebrow i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #65afff;
+  box-shadow: 0 0 18px #65afff;
+}
+
+.boot h1 {
+  margin: 25px 0 0;
+  font-size: clamp(76px, 11vw, 170px);
+  line-height: .72;
+  letter-spacing: -.09em;
+}
+
+.boot h1 span { color: var(--blue); }
+
+.boot h2 {
+  margin: 35px 0 40px;
+  font-size: clamp(18px, 2vw, 29px);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.role {
+  color: #91a1ba;
+  font: 12px "DM Mono", monospace;
+}
+
+#enter {
+  width: 230px;
+  height: 58px;
+  margin-top: 28px;
+  padding: 0 16px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(132,190,255,.5);
+  background: rgba(31,96,158,.12);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .35s;
+}
+
+#enter b {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #67adf5;
+  color: #06101c;
+}
+
+#enter:hover {
+  background: #67adf5;
+  color: #06101c;
+  transform: translateY(-3px);
+}
+
+.status {
+  position: absolute;
+  right: 7vw;
+  bottom: 12vh;
+  display: flex;
+  gap: 28px;
+  color: #71849d;
+  font: 9px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.status strong {
+  color: #79b5f4;
+  font-weight: 400;
+}
+
+.topbar {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .8s;
+}
+
+.topbar.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.brand {
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.brand strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 14px;
+}
+
+.brand small {
+  color: #65819f;
+  font: 8px "DM Mono", monospace;
+  letter-spacing: .16em;
+}
+
+nav { display: flex; gap: 12px; }
+
+nav button {
+  border: 0;
+  background: none;
+  color: #7f92aa;
+  font: 8px "DM Mono", monospace;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 5px;
+}
+
+nav button:hover { color: white; }
+
+.sector {
+  position: fixed;
+  z-index: 8;
+  left: 38px;
+  bottom: 38px;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sector.visible { opacity: 1; }
+
+.sector small {
+  display: block;
+  color: #71869f;
+  font: 8px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.sector strong {
+  display: block;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.hint {
+  position: fixed;
+  z-index: 8;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  color: #8193aa;
+  font: 9px "DM Mono", monospace;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: .8s;
+}
+
+.hint.visible { opacity: 1; }
+
+.panel {
+  position: fixed;
+  z-index: 12;
+  right: 28px;
+  top: 100px;
+  bottom: 28px;
+  width: min(460px, calc(100vw - 56px));
+  padding: 42px;
+  background: linear-gradient(145deg, rgba(10,19,40,.94), rgba(5,10,24,.88));
+  border: 1px solid rgba(140,190,244,.18);
+  backdrop-filter: blur(22px);
+  transform: translateX(calc(100% + 50px));
+  transition: transform .65s;
+  overflow: auto;
+}
+
+.panel.open { transform: none; }
+
+#close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(150,190,230,.2);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.kicker {
+  color: #69adf2;
+  font: 9px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.panel h2 {
+  margin: 16px 0 24px;
+  font-size: 48px;
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.panel p {
+  color: #b1bfd0;
+  line-height: 1.75;
+  font-size: 14px;
+}
+
+.panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+}
+
+.panel li {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid rgba(150,190,230,.12);
+  font-size: 13px;
+}
+
+.panel li span {
+  color: #71869f;
+  font: 9px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.project-card {
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid rgba(150,190,230,.14);
+  background: rgba(84,168,255,.04);
+}
+
+.project-card span {
+  display: block;
+  margin-top: 38px;
+  color: #7190ac;
+  font: 8px "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.timeline {
+  margin-top: 30px;
+  border-left: 1px solid rgba(96,168,239,.28);
+}
+
+.timeline div {
+  position: relative;
+  padding: 0 0 24px 20px;
+  color: #b5c3d4;
+  font-size: 13px;
+}
+
+.timeline div::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #67adf5;
+  box-shadow: 0 0 15px #67adf5;
+}
+
+@media (max-width: 800px) {
+  nav { display: none; }
+  .topbar { height: 66px; padding: 0 18px; }
+  .sector { left: 18px; bottom: 20px; }
+  .hint { right: 18px; left: auto; transform: none; }
+  .panel {
+    top: auto;
+    height: 62%;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    width: auto;
+    padding: 34px 26px;
+  }
+  .panel h2 { font-size: 38px; }
+}

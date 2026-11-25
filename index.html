@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mattero — The Digital Universe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="world"></canvas>
+
+  <section id="boot" class="boot">
+    <div class="boot-content">
+      <p class="eyebrow"><i></i> Personal portfolio · Interactive 3D experience</p>
+      <h1>Mattero<span>.</span></h1>
+      <h2>The Digital Universe</h2>
+      <p class="tagline">Building my future, one project at a time.</p>
+      <p class="role">Developer in progress · Technology enthusiast · Future Cloud Developer</p>
+      <button id="enter" type="button">
+        Enter my world <b>↗</b>
+      </button>
+      <div class="status"><strong>System online</strong><span>Italy · 2026</span></div>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <button class="brand" data-section="about"><strong>Mattero</strong><small>TDU / 001</small></button>
+    <nav>
+      <button data-section="about">01 About</button>
+      <button data-section="skills">02 Skills</button>
+      <button data-section="projects">03 Projects</button>
+      <button data-section="experience">04 Experience</button>
+      <button data-section="life">05 Life</button>
+      <button data-section="future">06 Future</button>
+    </nav>
+  </header>
+
+  <aside id="sector" class="sector">
+    <small>Active sector</small>
+    <strong>Central District</strong>
+  </aside>
+
+  <div id="hint" class="hint">↔ Drag to explore · Click a building</div>
+
+  <section id="panel" class="panel" aria-live="polite">
+    <button id="close" type="button" aria-label="Chiudi">×</button>
+    <div id="panelContent"></div>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
