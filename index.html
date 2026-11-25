@@ -3,53 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mattero — The Digital Universe</title>
+  <meta name="theme-color" content="#050816" />
+  <title>Mattero — Digital City</title>
   <link rel="stylesheet" href="style.css" />
   <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.169/build/three.module.js"
-      }
-    }
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169/build/three.module.js" } }
   </script>
 </head>
 <body>
   <canvas id="world"></canvas>
+  <div class="atmosphere"></div>
+  <div class="scanlines"></div>
 
   <section id="boot" class="boot">
+    <div class="boot-grid"></div>
     <div class="boot-content">
-      <p class="eyebrow"><i></i> Personal portfolio · Interactive 3D experience</p>
-      <h1>Mattero<span>.</span></h1>
-      <h2>The Digital Universe</h2>
-      <p class="tagline">Building my future, one project at a time.</p>
-      <p class="role">Developer in progress · Technology enthusiast · Future Cloud Developer</p>
+      <p class="eyebrow"><i></i> MATTERO NETWORK · NODE 001</p>
+      <h1>MATTERO<span>.</span></h1>
+      <h2>THE DIGITAL CITY</h2>
+      <p class="tagline">Esplora un futuro costruito una riga alla volta.</p>
+      <p class="role">Developer in progress · Cloud explorer · Technology enthusiast</p>
       <button id="enter" type="button">
-        Enter my world <b>↗</b>
+        <span>Entra nella città</span><b>↗</b>
       </button>
-      <div class="status"><strong>System online</strong><span>Italy · 2026</span></div>
+      <div class="status"><strong><i></i> Network online</strong><span>Italy · 2026</span></div>
     </div>
   </section>
 
   <header class="topbar">
-    <button class="brand" data-section="about"><strong>Mattero</strong><small>TDU / 001</small></button>
+    <button class="brand" data-section="about"><strong>Mattero</strong><small>Digital City / 001</small></button>
     <nav>
-      <button data-section="about">01 About</button>
-      <button data-section="skills">02 Skills</button>
-      <button data-section="projects">03 Projects</button>
-      <button data-section="experience">04 Experience</button>
-      <button data-section="life">05 Life</button>
-      <button data-section="future">06 Future</button>
+      <button data-section="about">01 <span>Chi sono</span></button>
+      <button data-section="skills">02 <span>Skills</span></button>
+      <button data-section="projects">03 <span>Progetti</span></button>
+      <button data-section="experience">04 <span>Esperienza</span></button>
+      <button data-section="life">05 <span>Life</span></button>
+      <button data-section="future">06 <span>Future</span></button>
     </nav>
   </header>
 
-  <aside id="sector" class="sector">
-    <small>Active sector</small>
-    <strong>Central District</strong>
-  </aside>
-
-  <div id="hint" class="hint">↔ Drag to explore · Click a building</div>
+  <aside id="sector" class="sector"><small>Distretto attivo</small><strong>Central Nexus</strong></aside>
+  <div id="hint" class="hint"><span>↔</span> trascina per esplorare <b>·</b> clicca un edificio</div>
 
   <section id="panel" class="panel" aria-live="polite">
+    <div class="panel-index"></div>
     <button id="close" type="button" aria-label="Chiudi">×</button>
     <div id="panelContent"></div>
   </section>
