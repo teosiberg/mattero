@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050816" />
-  <title>Mattero — Digital City</title>
+  <meta name="theme-color" content="#06192b" />
+  <title>Mattero — Miami Digital District</title>
   <link rel="stylesheet" href="style.css" />
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169/build/three.module.js" } }
@@ -12,26 +12,24 @@
 </head>
 <body>
   <canvas id="world"></canvas>
-  <div class="atmosphere"></div>
-  <div class="scanlines"></div>
+  <div class="miami-glow"></div>
+  <div class="grain"></div>
 
   <section id="boot" class="boot">
-    <div class="boot-grid"></div>
+    <div class="sunset-lines"></div>
     <div class="boot-content">
-      <p class="eyebrow"><i></i> MATTERO NETWORK · NODE 001</p>
+      <p class="eyebrow"><i></i> Ocean Drive · Digital Experience</p>
       <h1>MATTERO<span>.</span></h1>
-      <h2>THE DIGITAL CITY</h2>
-      <p class="tagline">Esplora un futuro costruito una riga alla volta.</p>
+      <h2>MIAMI BEACH</h2>
+      <p class="tagline">Un portfolio illuminato dal neon e dal mare.</p>
       <p class="role">Developer in progress · Cloud explorer · Technology enthusiast</p>
-      <button id="enter" type="button">
-        <span>Entra nella città</span><b>↗</b>
-      </button>
-      <div class="status"><strong><i></i> Network online</strong><span>Italy · 2026</span></div>
+      <button id="enter" type="button"><span>Entra a Miami</span><b>↗</b></button>
+      <div class="status"><strong><i></i> South Beach online</strong><span>Florida · 2026</span></div>
     </div>
   </section>
 
   <header class="topbar">
-    <button class="brand" data-section="about"><strong>Mattero</strong><small>Digital City / 001</small></button>
+    <button class="brand" data-section="about"><strong>Mattero</strong><small>Miami Beach / 001</small></button>
     <nav>
       <button data-section="about">01 <span>Chi sono</span></button>
       <button data-section="skills">02 <span>Skills</span></button>
@@ -42,15 +40,13 @@
     </nav>
   </header>
 
-  <aside id="sector" class="sector"><small>Distretto attivo</small><strong>Central Nexus</strong></aside>
+  <aside id="sector" class="sector"><small>Zona attiva</small><strong>Ocean Drive</strong></aside>
   <div id="hint" class="hint"><span>↔</span> trascina per esplorare <b>·</b> clicca un edificio</div>
 
   <section id="panel" class="panel" aria-live="polite">
-    <div class="panel-index"></div>
     <button id="close" type="button" aria-label="Chiudi">×</button>
     <div id="panelContent"></div>
   </section>
-
   <script type="module" src="app.js"></script>
 </body>
 </html>
